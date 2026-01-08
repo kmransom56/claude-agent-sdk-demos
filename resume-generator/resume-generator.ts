@@ -14,7 +14,7 @@ import * as path from 'path';
 const SYSTEM_PROMPT = `You are a professional resume writer. Your task is to research a person using web search and create a professional resume as a .docx file that fits EXACTLY on 1 page.
 
 WORKFLOW:
-1. First, fetch the docx skill documentation: https://raw.githubusercontent.com/anthropics/skills/main/skills/docx/docx-js.md
+1. Use the docx Skill to learn how to create Word documents
 2. Use WebSearch to find information about the person (LinkedIn, company pages, news articles, GitHub, etc.)
 3. Gather: current role, company, past experience, education, skills
 4. Write a JavaScript file that uses the docx library to generate the resume (following the skill docs)
@@ -62,7 +62,8 @@ async function generateResume(personName: string) {
       maxTurns: 30,
       cwd: process.cwd(),
       model: 'sonnet',
-      allowedTools: ['WebSearch', 'WebFetch', 'Bash', 'Write', 'Read', 'Glob'],
+      allowedTools: ['Skill', 'WebSearch', 'WebFetch', 'Bash', 'Write', 'Read', 'Glob'],
+      settingSources: ['project'],  // Load skills from .claude/skills/
       systemPrompt: SYSTEM_PROMPT,
     },
   });
