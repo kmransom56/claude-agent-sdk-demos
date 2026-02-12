@@ -6,17 +6,20 @@ This repository contains multiple demonstrations of the [Claude Agent SDK](https
 
 ## Available Demos
 
+### 👋 [Hello World](./hello-world)
+A simple getting-started example to help you understand the basics of the Claude Agent SDK.
+
+### 👋 [Hello World V2](./hello-world-v2)
+V2 Session API examples: multi-turn conversations, session resume, one-shot prompt.
+
+### 📊 [Excel Demo](./excel-demo)
+Demonstrations of working with spreadsheets and Excel files using Claude.
+
 ### 📧 [Email Agent](./email-agent)
 An in-development IMAP email assistant that can:
 - Display your inbox
 - Perform agentic search to find emails
 - Provide AI-powered email assistance
-
-### 📊 [Excel Demo](./excel-demo)
-Demonstrations of working with spreadsheets and Excel files using Claude.
-
-### 👋 [Hello World](./hello-world)
-A simple getting-started example to help you understand the basics of the Claude Agent SDK.
 
 ### 🔬 [Research Agent](./research-agent)
 A multi-agent research system that coordinates specialized subagents to research topics and generate comprehensive reports:
@@ -25,10 +28,33 @@ A multi-agent research system that coordinates specialized subagents to research
 - Synthesizes findings into detailed reports
 - Demonstrates detailed subagent activity tracking
 
+### 📄 [Resume Generator](./resume-generator)
+Generate professional .docx resumes using Claude and web search (e.g. LinkedIn, GitHub).
+
+### 💬 [Simple Chat App](./simple-chatapp)
+A React + Express chat application with Claude Agent SDK (frontend :5173, backend :3001).
+
 ## Quick Start
 
 Each demo has its own directory with dedicated setup instructions. Navigate to the specific demo folder and follow its README for setup and usage details.
 
+### Running the demos
+
+From the repo root you can run any demo in two ways:
+
+**Python entry point (all agents in one place, like `agent.py`):**
+```bash
+python agents.py                    # interactive menu to pick an agent
+python agents.py <agent-name>       # run one agent
+python agents.py --list             # list agent names
+```
+
+**Shell script:**
+```bash
+./run-demo.sh <demo-name>
+```
+
+Demo names: `hello-world`, `hello-world-v2`, `excel-demo`, `email-agent`, `research-agent`, `resume-generator`, `simple-chatapp`. Both scripts install dependencies when needed and create required dirs (e.g. `hello-world/agent/custom_scripts`). For full install/run details and env setup (e.g. `ANTHROPIC_API_KEY`, email-agent `.env`), see **[DEMOS.md](./DEMOS.md)**.
 
 ## Prerequisites
 
