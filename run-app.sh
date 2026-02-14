@@ -1,26 +1,26 @@
 #!/usr/bin/env bash
-# Run a Claude Agent SDK demo by name from repo root.
-# Usage: ./run-demo.sh <demo-name>
-# Demos: hello-world, hello-world-v2, excel-demo, email-agent, research-agent, resume-generator, simple-chatapp
+# Run a Claude Agent SDK application by name from repo root.
+# Usage: ./run-app.sh <app-name>
+# Applications: hello-world, hello-world-v2, excel-demo, email-agent, research-agent, resume-generator, simple-chatapp
 
 set -e
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$REPO_ROOT"
 
-DEMO="${1:-}"
-if [[ -z "$DEMO" ]]; then
-  echo "Usage: $0 <demo-name>"
-  echo "Demos: hello-world | hello-world-v2 | excel-demo | email-agent | research-agent | resume-generator | simple-chatapp"
-  echo "See DEMOS.md for details."
+APP="${1:-}"
+if [[ -z "$APP" ]]; then
+  echo "Usage: $0 <app-name>"
+  echo "Applications: hello-world | hello-world-v2 | excel-demo | email-agent | research-agent | resume-generator | simple-chatapp"
+  echo "See APPLICATIONS.md for details."
   exit 1
 fi
 
 if [[ -z "${ANTHROPIC_API_KEY:-}" ]]; then
-  echo "Warning: ANTHROPIC_API_KEY is not set. Some demos will prompt or fail."
-  echo "Export it or add to .env in the demo directory."
+  echo "Warning: ANTHROPIC_API_KEY is not set. Some applications will prompt or fail."
+  echo "Export it or add to .env in the application directory."
 fi
 
-case "$DEMO" in
+case "$APP" in
   hello-world)
     mkdir -p "$REPO_ROOT/hello-world/agent/custom_scripts"
     cd "$REPO_ROOT/hello-world"
@@ -76,8 +76,8 @@ case "$DEMO" in
     npm run dev
     ;;
   *)
-    echo "Unknown demo: $DEMO"
-    echo "Demos: hello-world | hello-world-v2 | excel-demo | email-agent | research-agent | resume-generator | simple-chatapp"
+    echo "Unknown application: $APP"
+    echo "Applications: hello-world | hello-world-v2 | excel-demo | email-agent | research-agent | resume-generator | simple-chatapp"
     exit 1
     ;;
 esac

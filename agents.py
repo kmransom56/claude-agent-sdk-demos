@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Single entry point to run any Claude Agent SDK demo.
+Single entry point to run any Claude Agent SDK application.
 Usage:
   python agents.py                    # interactive menu
-  python agents.py <agent-name>        # run one agent
-  python agents.py --list              # list agent names
+  python agents.py <agent-name>        # run one application
+  python agents.py --list              # list application names
 """
 import os
 import subprocess
@@ -47,8 +47,8 @@ AGENTS = {
 
 def _env_warn():
     if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("Warning: ANTHROPIC_API_KEY is not set. Some demos will prompt or fail.", file=sys.stderr)
-        print("Export it or add to .env in the demo directory.", file=sys.stderr)
+        print("Warning: ANTHROPIC_API_KEY is not set. Some applications will prompt or fail.", file=sys.stderr)
+        print("Export it or add to .env in the application directory.", file=sys.stderr)
 
 
 def _run_hello_world():
